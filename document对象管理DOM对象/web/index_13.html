@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    /* 京东面试题：
+         在java中存在一个HashMap类型，以键值对的方式存储数据；
+         一次可以存储多个键值对，并且要求每一个关键字都是唯一；
+         读取可以通过给定关键字读取对应的值。
+
+         JavaScript中并不存在HashMap类型，要求在JavaScript中模拟出一个HashMap类型对象，要求具有以下功能：
+            HashMap map = new HashMap();
+            map.put("key1", 100);
+            map.put("key2", 200);
+            map.get("key1", 100);
+            map.get("key2", 200);
+    */
+    <script type="text/javascript">
+        function HashMap() {
+            //添加属性（变量或方法），都是往Object中增改数据
+            /* JavaScript中，往Object中添加属性 */
+            //var obj = new Object();
+
+            /* JavaScript中最简单的JSON使用方式：本质都是创建一个object类型对象 */
+            var obj = {};
+
+            this.put = function (key, value){
+                obj[key] = value;
+            };
+            this.get = function (key){
+                return obj[key];
+            };
+        }
+        var map = new HashMap();
+        map.put("key1", 100);
+        map.put("key2", 200);
+        window.alert(map.get("key1", 100));
+        window.alert(map.get("key2", 200));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

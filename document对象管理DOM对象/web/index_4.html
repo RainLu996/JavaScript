@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--鼠标监听事件-->
+    <script type="text/javascript">
+        function fun_1() {
+            var value = document.getElementById("one").value;
+
+            if (value === "") {
+                //focus()：如果‘用户密码’框为空，则：将光标重新移动到‘用户密码’处
+                document.getElementById("one").focus()
+                document.getElementById("font_1").innerHTML = "密码不能为空"
+            } else {
+                document.getElementById("font_1").innerHTML = "*"
+            }
+        }
+
+        function fun_2() {
+            var val_1 = document.getElementById("one").value;
+            var val_2 = document.getElementById("two").value;
+
+            if (val_1 === val_2) {
+                document.getElementById("font_2").innerHTML = "*"
+            } else {
+                document.getElementById("font_2").innerHTML = "两次输入不一致"
+                document.getElementById("two").focus()
+            }
+        }
+    </script>
+</head>
+<body>
+<center>
+    <font style="color: red; background-color: chartreuse; font-size: 35px">用户注册</font>
+    <form>
+        <table style="border-color: black" border="2">
+            <tr>
+                <td>用户姓名</td>
+                <td><input type="text" name="userName"></td>
+            </tr>
+
+            <tr>
+                <td>用户密码</td>
+                <td>
+                    <input type="text" name="password" id="one">
+                    <font id="font_1" style="color: red">*</font>
+                </td>
+            </tr>
+
+            <tr>
+                <td>重复密码</td>
+                <td>
+                    <input type="text" name="password" id="two" onfocus="fun_1()" onblur="fun_2()">
+                    <font id="font_2" style="color: red">*</font>
+                </td>
+            </tr>
+
+            <tr>
+                <td>用户性别</td>
+                <td>
+                    <input type="radio" name="sex" value="男">男
+                    <input type="radio" name="sex" value="女">女
+                </td>
+            </tr>
+
+            <tr>
+                <td>用户邮箱</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="用户注册"></td>
+                <td><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>

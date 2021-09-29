@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--DOM对象对标签中的【文字显示内容】进行操作-->
+  <script type="text/javascript">
+      function fun() {
+          //1、获取用户输入的内容
+          var value = document.getElementById("two").value;
+
+          //2、将得到的输入内容作为【文字显示内容】
+          document.getElementById("one").innerText = value;
+          //document.getElementById("one").innerHTML = value;
+      }
+
+  </script>
+</head>
+<body>
+<center>
+    <div id="one" style="width: 300px; height: 300px; background-color: yellow; color: black">
+
+    </div>
+
+    <input type="text" id="two"/>
+    <input type="button" value="文字显示内容" onclick="fun()"/>
+</center>
+</body>
+</html>

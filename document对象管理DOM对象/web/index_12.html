@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        //全局变量
+        var name = "Wu";
+
+        //全局变量
+        //相当于给window对象追加了一个对象，用于管理Student函数
+        function Student() {
+            this.name = "LuJun";
+        }
+
+        /*LuJun
+        Student();//相当于：window.Student()；this指向window对象
+        window.alert("window.name = " + window.name);
+        */
+
+        /*Wu
+        new Student();//this指向window对象
+        window.alert("window.name = " + window.name);
+         */
+
+        var obj = new Student();//this指向obj对象；并不影响
+        window.alert("window.name = " + window.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

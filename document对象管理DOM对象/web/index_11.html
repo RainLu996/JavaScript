@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        function fun() {
+            return "HelloLuJun!";
+        }
+
+        //将fun作为【普通函数】调用
+        var num_1 = fun();
+        window.alert("num_1 = " + num_1 + "；num_1 的数据类型为：" + typeof num_1);
+
+        //将fun作为【构造函数】调用
+        var num_2 = new fun();
+        /* 函数作为构造函数进行调用时，内部的return直接失效！！！ */
+        window.alert("num_2 = " + num_2 + "；num_2 的数据类型为：" + typeof num_2);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

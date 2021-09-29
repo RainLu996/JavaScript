@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        var id = 666666;//全局变量（相当于：window.id = 666666）
+        function fun_1() {
+            var sex = "man";//局部变量
+
+            //全局变量（相当于：window.name = "LuJun"）
+            name = "LuJun";//只有当这行命令【执行】时，name变量才会成为全局变量
+        }
+
+        window.alert("window.name = " + window.name);//window.name = undefined
+        window.alert("window.id = " + window.id);//window.id = 666666
+        fun_1();
+        window.alert("window.name = " + window.name);//window.name = LuJun
+        window.alert("window.sex = " + window.sex);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

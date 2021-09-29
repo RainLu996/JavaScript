@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--DOM对象对标签中的【样式属性】进行取值与赋值操作-->
+    <script type="text/javascript">
+        function fun_1(color) {
+            //获取DOM对象
+            var domObj = document.getElementById("one");
+
+            //为背景颜色属性赋值
+            domObj.style.backgroundColor = color;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div id="one" style="width: 300px; height: 300px; background-color: black">
+
+        </div>
+
+        <input type="radio" name="two" onclick="fun_1('red')">红
+        <input type="radio" name="two" onclick="fun_1('yellow')">黄
+        <input type="radio" name="two" onclick="fun_1('green')">绿
+    </center>
+</body>
+</html>

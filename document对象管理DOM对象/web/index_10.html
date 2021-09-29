@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        /*第一种维护方案
+        var object = new Object();
+
+        //新增属性
+        object.sid = 10;
+
+        //新增函数
+        object.test = function (param){window.alert("param = " + param)};
+
+        //调用
+        window.alert("sid = " + object.sid);
+        object.test(object.sid)
+         */
+
+        //第二种维护方案
+        var object = new Object();
+
+        //新增属性
+        object["sid"] = 10;
+
+        //新增函数
+        object["test"] = function (param){window.alert("param = " + param)};
+
+        //特殊点
+        var id = "id";
+        object[id] = 123456;
+
+        //调用
+        window.alert("sid = " + object.sid);
+        window.alert("id = " + object.id);
+
+        //移除sid属性
+        delete object.sid;
+
+        object.test(object.sid);//undefined
+    </script>
+</head>
+<body>
+
+</body>
+</html>

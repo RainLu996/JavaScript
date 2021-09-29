@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--请与index_2.html对照，以显示区别-->
+
+    <!--onload监听事件、基于DOM对象实现监听事件与HTML标签之间的绑定-->
+    <script type="text/javascript">
+        function fun_1() {
+            //1、获取标题行“全选/全不选”中的checked的属性值
+            var flag = document.getElementById("one").checked;
+
+            //2、定位数据行中的所有checkbox“状态属性”
+            var domArray = document.getElementsByName("ck");
+
+            //3、将标题行中的checked的属性值逐个赋值给domArray中的对象
+            for (var i = 0; i < domArray.length; i++) {
+                domArray[i].checked = flag;
+            }
+        }
+
+        /* 监听事件 */
+        <!--鼠标悬停-->
+        function fun_2() {
+            this.style.backgroundColor = "blue"
+        }
+        <!--鼠标移开-->
+        function fun_3() {
+            this.style.backgroundColor = "white"
+        }
+
+        //声明一个函数，这个函数在浏览器加载页面完毕之后被自动调用，执行时为所有数据行绑定onmouseover与onmouseout监听事件
+        function main() {
+            //1、定位所有tr标签关联的DOM对象
+            var trEle = document.getElementsByTagName("tr");
+
+            //2、通过循环遍历，依次通过DOM对象将onmouseover与onmouseout绑定在标签上
+            for (var i = 1; i < trEle.length; i++) {
+                trEle[i].onmouseover = fun_2
+                trEle[i].onmouseout = fun_3
+            }
+        }
+    </script>
+</head>
+<body onload="main()">
+    <table border="2" align="center" >
+        <tr>
+            <!--只能够为checkbox；如果为radio会导致无法取消勾选-->
+            <td><input type="checkbox" id="one" onclick="fun_1()"/>全选/全不选</td>
+            <td>1a</td>
+            <td>1b</td>
+            <td>1c</td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" name="ck"/></td>
+            <td>2a</td>
+            <td>2b</td>
+            <td>2c</td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" name="ck"/></td>
+            <td>3a</td>
+            <td>3b</td>
+            <td>3c</td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" name="ck"/></td>
+            <td>4a</td>
+            <td>4b</td>
+            <td>4c</td>
+        </tr>
+    </table>
+
+</body>
+</html>

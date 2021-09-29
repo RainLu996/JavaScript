@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <!--请与index_7.html对照，以显示区别-->
+
+  <!--监听事件大集合、基于DOM对象实现监听事件与HTML标签之间的绑定-->
+  <script type="text/javascript">
+    function main() {
+      //1、为标题行checkbox绑定onclick监听事件并关联fun_1函数
+      document.getElementById("one").onclick = fun_1;
+
+      //2、全选/全不选功能完善
+      var elements = document.getElementsByName("ck");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].onclick = fun_2;
+      }
+
+      //3、鼠标悬浮/移开
+      elements = document.getElementsByTagName("tr");
+      for (var j = 1; j < elements.length; j++) {
+        elements[j].onmouseover = fun_3;
+        elements[j].onmouseout = fun_4;
+      }
+    }
+
+    /* 功能1：根据标题行checkbox的选中状态控制数据行所有的checkbox的选中状态 */
+    function fun_1() {
+      //1、获取标题行中checkbox的选中状态属性值
+      var flag = document.getElementById("one").checked;
+
+      //2、定位所有数据行DOM对象
+      var elements = document.getElementsByName("ck");
+
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].checked = flag;
+      }
+    }
+
+    /* 功能2：根据数据行checkbox的选中状态控制标题行的checkbox的选中状态 */
+    function fun_2() {
+      //获取标题行“全选/全不选”中的checked的属性值
+      var elements = document.getElementsByName("ck");
+
+      //如果数据行中的checkbox的选中状态数为“全选”，就赋值标题行的checkbox的选中状态为true；反之为false
+      var count = 0;
+      for (var i = 0; i < elements.length; i++) {
+        if (elements[i].checked === true) {
+          count++;
+        }
+      }
+
+      document.getElementById("one").checked = (count === elements.length);
+    }
+
+    /* 功能3：将鼠标悬停的数据行背景颜色设置为：yellow；字体颜色设置为：blue */
+    function fun_3() {//onmouseover
+      this.style.backgroundColor = "yellow";
+      this.style.color = "blue";
+    }
+    function fun_4() {//onmouseout
+      this.style.backgroundColor = "white";
+      this.style.color = "black";
+    }
+  </script>
+</head>
+<body onload="main()">
+<table border="2" align="center" >
+  <tr>
+    <!--只能够为checkbox；如果为radio会导致无法取消勾选-->
+    <td><input type="checkbox" id="one"/>全选/全不选</td>
+    <td>1a</td>
+    <td>1b</td>
+    <td>1c</td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" name="ck"/></td>
+    <td>2a</td>
+    <td>2b</td>
+    <td>2c</td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" name="ck"/></td>
+    <td>3a</td>
+    <td>3b</td>
+    <td>3c</td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" name="ck"/></td>
+    <td>4a</td>
+    <td>4b</td>
+    <td>4c</td>
+  </tr>
+</table>
+
+</body>
+</html>
